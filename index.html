@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TV+ Rich Media Sunumu</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #003b8b, #001f5c);
+      color: #ffffff;
+    }
+    header {
+      background-color: #003b8b;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .button-group {
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .button-group button {
+      padding: 10px 30px;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .desktop-button {
+      background-color: #007bff;
+      color: white;
+    }
+    .mobile-button {
+      background-color: #d6d6d6;
+      color: #333;
+    }
+    .button-group button.active {
+      background-color: #ffc107;
+      color: #003b8b;
+    }
+    .iframe-container {
+      display: flex;
+      justify-content: center;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 1000px;
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      position: relative;
+    }
+    iframe.desktop-frame {
+      width: 970px;
+      height: 250px;
+      border: none;
+      border-radius: 12px;
+    }
+    .mobile-frame-wrapper {
+      position: relative;
+      width: 320px;
+      height: 600px;
+      background: url('Mobile/video-cerceve.png') no-repeat center center;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    iframe.mobile-frame {
+      width: 320px;
+      height: 480px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 50px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>TV+ Rich Media Sunumu</header>
+
+<div class="button-group">
+  <button id="desktopBtn" class="desktop-button active">Desktop</button>
+  <button id="mobileBtn" class="mobile-button">Mobile</button>
+</div>
+
+<div class="iframe-container">
+  <iframe id="desktopFrame" class="desktop-frame" src="Desktop/desktop.html"></iframe>
+  <div id="mobileFrameWrapper" class="mobile-frame-wrapper hidden">
+    <iframe id="mobileFrame" class="mobile-frame" src="Mobile/mobile.html"></iframe>
+  </div>
+</div>
+
+<script>
+  const desktopBtn = document.getElementById('desktopBtn');
+  const mobileBtn = document.getElementById('mobileBtn');
+  const desktopFrame = document.getElementById('desktopFrame');
+  const mobileFrameWrapper = document.getElementById('mobileFrameWrapper');
+
+  desktopBtn.addEventListener('click', () => {
+    desktopFrame.classList.remove('hidden');
+    mobileFrameWrapper.classList.add('hidden');
+    desktopBtn.classList.add('active');
+    mobileBtn.classList.remove('active');
+  });
+
+  mobileBtn.addEventListener('click', () => {
+    desktopFrame.classList.add('hidden');
+    mobileFrameWrapper.classList.remove('hidden');
+    mobileBtn.classList.add('active');
+    desktopBtn.classList.remove('active');
+  });
+</script>
+
+</body>
+</html>
