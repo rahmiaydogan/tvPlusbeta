@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Desktop Banner</title>
+  <style>
+    body { margin: 0; background: #000; display: flex; align-items: center; justify-content: center; height: 100%; }
+    img { width: 970px; height: 250px; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+<img src="film.jpg" id="bannerImage" onclick="playVideo('film')">
+
+<script>
+  const bannerImage = document.getElementById('bannerImage');
+
+  function playVideo(category) {
+    if (category === 'film') {
+      bannerImage.outerHTML = '<iframe width="970" height="250" src="https://www.youtube.com/embed/Xl8hxzIGBGg" frameborder="0" allowfullscreen></iframe>';
+    } else if (category === 'spor') {
+      bannerImage.outerHTML = '<iframe width="970" height="250" src="https://www.youtube.com/embed/n3Be9er8DIc" frameborder="0" allowfullscreen></iframe>';
+    } else if (category === 'belgesel') {
+      bannerImage.outerHTML = '<iframe width="970" height="250" src="https://www.youtube.com/embed/6I0uYFoPjyY" frameborder="0" allowfullscreen></iframe>';
+    } else if (category === 'cocuk') {
+      bannerImage.outerHTML = '<iframe width="970" height="250" src="https://www.youtube.com/embed/eRLUim2hPqM" frameborder="0" allowfullscreen></iframe>';
+    }
+  }
+</script>
+
+</body>
+</html>
